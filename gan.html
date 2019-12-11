@@ -70,12 +70,28 @@
             <li>Unity</li>
         </ul>
         <p>
-            This was an individual project. 
+            This was an individual project. After reading a paper on how a <a href="https://arxiv.org/abs/1804.09154">Generative Adversarial Network was used to generate DOOM levels</a>, I wanted to see
+            if a similar type of machine learning based generation could be applied to other forms of game content. I designed and created a strategy game, featuring attacks that could not easilly be created by
+            conventional procedural generation without being imbalanced. Creating two neural networks in TensorFlow, a 'generator' and a 'discriminator', I was able to train the network to a point where very few
+            imbalanced attacks were generated.
         </p>
-
+        <p>
+            I also created a strategy game in Unity, to show that the generated content could be used in a game without breaking the established game balance.
+            The game read in a csv file containing the results of the generation, and playtesting revealed that players thought the generated playthroughs were just as good as playthroughs using the training set of attacks.
+            Gameplay footage can be seen in the video below.
+        </p>
+        <hr />
         <div class="text-center">
             <iframe width="864" height="504" src="https://www.youtube.com/embed/5Cthvkb7X-k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+        <hr />
+        <h4>What I'd do next time</h4>
+        <p>
+            I would have liked to include the generation process within the game itself, so that truly infinite ammounts of content could have been created.
+            In terms of further extensions, I think it would be cool to have the network see which attacks get chosen more often, and adapt to generate more similar types of attack.
+        </p>
+
+
 
     </div>
     <!-- /.container -->
