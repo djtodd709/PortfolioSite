@@ -17,6 +17,12 @@ body {
   background-size: cover;
 }
 
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .portfolio-item {
   margin-bottom: 30px;
 }
@@ -35,4 +41,3 @@ body {
     width: 100%;
     height: 100%;
 }
-
