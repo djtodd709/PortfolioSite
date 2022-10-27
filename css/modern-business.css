@@ -11,10 +11,10 @@ body {
   height: 0;
   padding-top: 56.25%;
   background: no-repeat center center scroll;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  -o-background-size: contain !important;
+  background-size: contain !important;
   background-color:#343a40;
 }
 
@@ -22,10 +22,10 @@ body {
   height: 0;
   padding-top: 56.25%;
   background: no-repeat center center scroll;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  -o-background-size: contain !important;
+  background-size: contain !important;
   background-color:#343a40;
 }
 
