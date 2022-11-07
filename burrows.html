@@ -62,9 +62,10 @@
               Planet Zoo - Burrows
           </h1>
           <p style="font-size: 1em;">
-              I've been a part of the Planet Zoo team since August 2020, and in that time I've done a great deal.
-              From animal behaviour code to experience with our render system, the video below provides a brief overview of
-              my accomplishments, and how I've contributed to the 8 DLC releases I've worked on.
+              After creating a mechanic for meerkats to dig tunnels in an earlier release, the team wanted to
+              expand on the concept of animals going underground. This was realised in the form of burrows, a
+              place for certain animals to rest, give birth, and hide from adverse weather. Here's some of the
+              details of my implementation.
           </p>
         </div>
       </div>
@@ -73,68 +74,83 @@
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
-
         <hr />
-        <div class="text-center iframe-container">
-            <iframe width="864" height="504" src="https://www.youtube.com/embed/m-Y37UZ_IYc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <h3>Key Skills</h3>
+        <ul>
+            <li>AI programming</li>
+            <li>Code/Asset reuse</li>
+        </ul>
         <hr />
-        <h2>Summary</h2>
+        <h3>Modifying Behaviour</h3>
         <p>
-            I've been a gameplay programmer during 8 DLC releases for Planet Zoo, a simulation game allowing players to build and manage a zoo.
-            I'm currently the primary coder responible for animal behaviour, obviously a key part of a game with a main gameplay loop of building
-            habitats for animals to interact with.<br><br>
-            With many new animals performing various types of actions, my role has required interaction between many different departments at
-            once to coordinate how exactly a feature comes to fruition.
-            This typically includes:
-        </p>
-        <ul>
-            <li>Discussions with the design team to establish how we implement their ideas in a technically feasible way</li>
-            <li>Planning out features with the production team, to reduce loads on departments like art and animation</li>
-            <li>Working with the asset creation teams to ensure everything created is fit for purpose and won't introduce technical hurdles later on</li>
-        </ul>
-        <p>
-            Implementing these features requires an understanding of our in-house game engine, as well as the ability to work with the multiple programming languages we use:
-        </p>
-        <ul>
-            <li>C++</li>
-            <li>Lua</li>
-            <li>HLSL</li>
-        </ul>
-        <p>
-            I've also been trusted to take on some of the responsibilities of other departments, such as making graphical changes, normally
-            handled by our render team. This has furthered my inter-departmental communication skills, to the point where I'm the project's
-            most direct communication link outside of production to both of Frontier's core Animation and Render programming teams. I'm
-            also regularly chosen as a programming representative by our community team for livestreams and other social events.<br><br>
-            I've created a lot of features I'm very proud of, but here's two that are worth a more in-depth look, as they provide a great
-            example of my work:
+            Our animals have a wide variety of behaviours that they can choose to perform. Which behaviour is chosen
+            depends on the animal's needs at the time, for example every animal has a Hunger need which becomes more
+            important until they eat. However when inside a burrow, some of these needs could not be fulfilled, and
+            other needs required very different behaviours to their overground equivalents.
         </p>
         <div class="row center">
-            <div class="col-lg-2 col-sm-12 portfolio-item">
-            </div>
-            <div class="col-lg-4 col-sm-12 portfolio-item">
-                <div class="card h-100">
-                    <a href="burrows.html"><img class="card-img-top" src="Burrow.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="paris.html">Burrows</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-12 portfolio-item">
-                <div class="card h-100">
-                    <a href="brachiation.html"><img class="card-img-top" src="Siamang.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="paris.html">Brachiation</a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-12 portfolio-item">
-            </div>
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
+          <div class="col-lg-6 col-sm-12 portfolio-item">
+            <img class="card-img-top" src="Siamang.png" alt="">
+          </div>
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
         </div>
+        <p>
+            To solve this, I created a new system of burrow behaviours, that could reuse the useful elements of
+            overground behaviours, while also allowing us to tweak them for underground use as the design developed.
+            This gave us a whole host of new behaviours while diminishing the concern about bugs, as these were based
+            on behaviours already thouroughly QA tested.
+        </p>
+        <hr />
+        <h3>Animal Movement</h3>
+        <p>
+            When planning out the burrows, I spoke with our modelling team about including a preset navigation mesh
+            in the burrow interior. We'd previously done this with staff buildings, and thanks to my code we got this
+            working for animals too, meaning navigation was handled by pre-exisitng, tested solutions.
+        </p>
+        <div class="row center">
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
+          <div class="col-lg-6 col-sm-12 portfolio-item">
+            <img class="card-img-top" src="Siamang.png" alt="">
+          </div>
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
+        </div>
+        <p>
+            I also specified that the burrow entrance should have no floor geometry. This enabled me to reuse the walk
+            animations for each animal, to stich together an entrance/exit animation in code. This saved hours of
+            animation time creating bespoke entrances/exits that would have been needed otherwise. Combined with the
+            navigation inside the burrow, this made adding burrowing to pre-existing animals require no new animation
+            work, while still looking great.
+        </p>
+        <hr />
+        <h3>Feature Polish</h3>
+        <p>
+            As the burrows were underground in an area not normally accessible by players, I worked on our camera code
+            to allow players to see into their burrows via an in-universe webcam, which they could also cast onto
+            billboards they placed throughout their park. The camera was in a fixed location, so it didn't take long
+            to rustle up a burrow-exclusive camera investigation behavior, re-using existing animations.
+        </p>
+        <div class="row center">
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
+          <div class="col-lg-6 col-sm-12 portfolio-item">
+            <img class="card-img-top" src="Siamang.png" alt="">
+          </div>
+          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
+        </div>
+        <p>
+            I also developed a queue system, so animals entering/exiting clipped with each other as little as possible,
+            as well as a claim system so that pregnant mothers could enter the burrow, and avoid having other animals
+            disrupt the new family. These were all stretch goals that were met thanks to my planning and code/asset
+            re-use, and we managed to investigate and implement (where appropriate) all elements of the original design.
+        </p>
+        <hr />
+        <h3>What I'd do next time</h3>
+        <p>
+            Considering how the final product turned out, I see a lot of potential in a system that was more generalised.
+            I planned out an "underground area animals can go to sleep/shelter/give birth" when I could've planned a
+            "____ area animals can go to ____", something more extendable for the future. We haven't needed a similar
+            system since, but a more generic system always makes it easier for design to suggest ways to use it.
+        </p>
     </div>
     <!-- /.container -->
     <hr />
