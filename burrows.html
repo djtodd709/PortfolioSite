@@ -75,76 +75,70 @@
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <hr />
-        <h3>Modifying Behaviour</h3>
-        <p>
-            Our animals have a wide variety of behaviours that they can choose to perform. Which behaviour is chosen
-            depends on the animal's needs at the time, for example every animal has a Hunger need which becomes more
-            important until they eat. However when inside a burrow, some of these needs could not be fulfilled, and
-            other needs required very different behaviours to their overground equivalents.
-        </p>
         <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
-            <img class="card-img-top" src="BurrowBehaviours.gif" alt="">
+          <div class="col-lg-6 col-sm-12">
+            <h3>Features</h3>
+            <div style ="text-align:left;">
+              <ul>
+                <li>Overriding existing AI for eligible species</li>
+                <li>Burrow queueing system for entering/exiting</li>
+                <li>Movement and pathfinding for animals while underground</li>
+                <li>Spawning of new AI agents with modified behaviour</li>
+                <li>Bespoke underground camera</li>
+              </ul>
+              <p>
+                Animals can move around in the burrow and perform many behaviours, leaving once they need something above
+                ground, or get restless. Newborns will wait for the mother to leave the burrow, before all following
+                her out. Burrow entrances can be placed anywhere in the habitat with enough space, with the underground chamber
+                automatically positioning itself in a valid location if possible.
+              </p>
+            </div>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-        </div>
-        <p>
-            To solve this, I created a new system of burrow behaviours, that could reuse the useful elements of
-            overground behaviours, while also allowing us to tweak them for underground use as the design developed.
-            This gave us a whole host of new behaviours while diminishing the concern about bugs, as these were based
-            on behaviours already thoroughly QA tested.
-        </p>
-        <hr />
-        <h3>Animal Movement</h3>
-        <p>
-            When planning out the burrows, I spoke with our modelling team about including a preset navigation mesh
-            in the burrow interior. We'd previously done this with staff buildings, and thanks to my code we got this
-            working for animals too, meaning navigation was handled by pre-existing, tested solutions.
-        </p>
-        <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
-            <img class="card-img-top" src="BurrowExit.gif" alt="">
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
+            <img class="card-img" src="BurrowBehaviours.gif" alt="">
+            <p><i>All Animal AI states have modified behaviour when inside a burrow.</i></p>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
         </div>
-        <p>
-            I also specified that the burrow entrance should have no floor geometry. This enabled me to reuse the walk
-            animations for each animal, to stitch together an entrance/exit animation in code. This saved hours of
-            animation time creating bespoke entrances/exits that would have been needed otherwise. Combined with the
-            navigation inside the burrow, this made adding burrowing to pre-existing animals require no new animation
-            work, while still looking great.
-        </p>
         <hr />
-        <h3>Feature Polish</h3>
-        <p>
-            As the burrows were underground in an area not normally accessible by players, I worked on our camera code
-            to allow players to see into their burrows via an in-universe webcam, which they could also cast onto
-            billboards they placed throughout their park. The camera was in a fixed location, so it didn't take long
-            to rustle up a burrow-exclusive camera investigation behavior, re-using existing animations.
-        </p>
         <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
+            <img class="card-img" src="BurrowExit.gif" alt="">
+            <p><i>I avoided the need for new animations, making the mechanic easily extendable</i></p>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <h3>Development</h3>
+            <div style ="text-align:left;">
+              <p>
+                Navigation was handled by preexisting, tested solutions, thanks to my code and discussions with our
+                modelling team about including a preset navigation mesh in the burrow interior. By also discussing the
+                entrance geometry in-depth, we also eliminated the need for any specific burrow animations, teleporting
+                the animal from the entrance to the burrow interior, disabling any problematic physics and IK along the way.<br>
+                I also worked on our camera code to allow players to see into their burrows via an in-universe webcam,
+                which they could cast onto billboards they placed throughout their park. The camera came with the stretch
+                goal of a small investigation behaviour, for our more curious species. This goal was met, alongside all
+                the other stretch goals for this feature.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row center">
+          <div class="col-lg-6 col-sm-12">
+            <h3>What I'd Do Next Time</h3>
+            <div style ="text-align:left;">
+              <p>
+                Considering how the final product turned out, I see a lot of potential in a system that was more generalised.
+                I planned out an "underground area animals can go to sleep/shelter/give birth" when I could've planned a
+                "____ area animals can go to ____", something more extendable for the future. We haven't needed a similar
+                system since, but a more generic system always makes it easier for designers to suggest ways to use it.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
             <img class="card-img-top" src="BurrowCamera.gif" alt="">
+            <p><i>The investigation behaviour in action, from the view of the camera.</i></p>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
         </div>
-        <p>
-            I also developed a queue system, so animals entering/exiting clipped with each other as little as possible,
-            as well as a claim system so that pregnant mothers could enter the burrow, and avoid having other animals
-            disrupt the new family. These were all stretch goals that were met thanks to my planning and code/asset
-            re-use, and we managed to investigate and implement (where appropriate) all elements of the original design.
-        </p>
-        <hr />
-        <h3>What I'd do next time</h3>
-        <p>
-            Considering how the final product turned out, I see a lot of potential in a system that was more generalised.
-            I planned out an "underground area animals can go to sleep/shelter/give birth" when I could've planned a
-            "____ area animals can go to ____", something more extendable for the future. We haven't needed a similar
-            system since, but a more generic system always makes it easier for designers to suggest ways to use it.
-        </p>
     </div>
     <!-- /.container -->
     <hr />
