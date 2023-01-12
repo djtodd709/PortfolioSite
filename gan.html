@@ -47,14 +47,25 @@
     </nav>
 
     <header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url(GAN.png)">
-                    <div class="carousel-caption d-none d-md-block">
+        <div class="row center">
+          <div class="col-lg-6 col-sm-12 portfolio-item" style="padding: 0px; margin: 0px">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide One - Set the background image for this slide in the line below -->
+                    <div class="carousel-item active" style="background-image: url('GAN.png')">
                     </div>
                 </div>
             </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 portfolio-item" style="padding: 0px; padding-left: 40px; padding-right: 40px; margin:0px; background-color:#139B6D; color:#FFFFFF; display: flex; align-content: center; flex-direction: column; justify-content: center;">
+            <h1 class="mt-3 mb-4">
+                Generative Adversarial Network Game
+            </h1>
+            <p style="font-size: 1em;">
+                Can you use machine learning to balance a strategy game? I wanted to find out, and see if it was possible to create
+                a huge ammount of game content that was indistinguishable from a human designed training set.
+            </p>
+          </div>
         </div>
     </header>
 
@@ -62,15 +73,17 @@
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3">
-            Generative Adversarial Network Game
-        </h1>
+        <hr />
+        <h2 class="mt-4 mb-3">
+            Key Skills
+        </h2>
 
         <ul>
             <li>Python</li>
             <li>TensorFlow</li>
             <li>Unity</li>
         </ul>
+        <hr />
         <p>
             This was an individual project. After reading a paper on how a <a href="https://arxiv.org/abs/1804.09154">Generative Adversarial Network was used to generate DOOM levels</a>, I wanted to see
             if a similar type of machine learning based generation could be applied to other forms of game content. I designed and created a strategy game, featuring attacks that could not easilly be created by

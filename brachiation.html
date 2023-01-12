@@ -75,82 +75,70 @@
     <div class="container">
         <!-- Page Heading/Breadcrumbs -->
         <hr />
-        <h3>Key Skills</h3>
-        <ul>
-            <li>Animation programming</li>
-            <li>Inter-departmental communication</li>
-        </ul>
-        <hr />
-        <h3>Climbing system integration</h3>
-        <p>
-            Planet Zoo does have a climbing system, where smaller pieces can be placed together into larger climbing frames.
-            However, it was decided that this system had too many unknowns when considering if/how animals could hang below
-            beams and traverse between them. There was also a desire from animation to make the brachiation movement more
-            dynamic, something that couldn't be done if it was done in the same way as climbing.
-        </p>
         <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
-            <img class="card-img-top" src="BrachiationSwing.gif" alt="">
+          <div class="col-lg-6 col-sm-12">
+            <h3>Features</h3>
+            <div style ="text-align:left;">
+              <ul>
+                <li>Integration with the game's existing climbing system</li>
+                <li>Object snapping system for creating frames</li>
+                <li>Brachiation animation system with opportunities for dynamic motions</li>
+                <li>Code controlled animations when transitioning between beams</li>
+                <li>Beam claiming system to limit clipping</li>
+              </ul>
+              <p>
+                When brachiating, Siamangs will look ahead to the end of their current beam. If a subsequent beam
+                is found near the same position, the animal may attempt to traverse to this next beam, continuing it's
+                brachiation animation. I implemented plenty of pathfinding logic to ensure only accessible, unobstructed
+                beams are traveled to, and significant animation code to ensure the system worked smoothly.
+              </p>
+            </div>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-        </div>
-        <p>
-            My solution was to make the brachiation frame, an enrichment item that was accessed by climbing. Animal enrichments
-            have much more bespoke animations due to their larger size, alongside more restrictions on where/how they can be
-            placed. This helped us know exactly where Siamangs would be when swinging on the frame, so we could make it look
-            just right. Integrating it with the climbing system also made it usable by other climbing animals, getting us more
-            value from the asset.
-        </p>
-        <hr />
-        <h3>Modular frame pieces</h3>
-        <p>
-            Originally the frame was a large singular piece, but as this would restrict player freedom I pushed for a more modular
-            mechanic, where the player could place and connect various pieces to form their own layouts. This required me to create
-            a new version of our scenery snapping system, letting the asset creation team put specific snapping points on scenery pieces
-            so that players can easily put pieces together in an expected way.
-        </p>
-        <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
-            <img class="card-img-top" src="BrachiationSnap.gif" alt="">
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
+            <img class="card-img" src="BrachiationSnap.gif" alt="">
+            <p><i>A modular system where pieces can snap together to make a frame.</i></p>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
         </div>
-        <p>
-            Another advantage of modular pieces was that animation lengths could be reduced while still giving time for impressive
-            motions. I worked with Art, Design, Animation and Production to oversee how each element of the feature came together,
-            leading weekly update meetings to ensure each department was coordinated, and highlight any issues that could hinder
-            other departments once assets got to them.<br>With this level of planning we were able to produce more animations than
-            expected, giving Siamangs one set of standard traversal animations, and 5 different acrobatic animations that could be
-            interchanged with the standard ones during traversal. This meant Siamangs very rarely used beams in exactly the same way.
-        </p>
         <hr />
-        <h3>Frame transitions</h3>
-        <p>
-            One of the positives of modular pieces was that Siamangs could start their animations at multiple points on the frame.
-            However, this meant it was important that the animals should be able to transition between pieces during the swinging
-            animation.<br>To achieve this, I asked animation to create a short on-the-spot loop of the Siamang brachiation. Once an
-            animal finished swinging on it's current frame, it would check if another frame was connected in front of it. If so,
-            the motion of the Siamang was taken over by my code, which moved it to the start point of it's next animation. This allowed
-            not only for frame transitions, but transitions between frames that weren't exactly aligned, something that couldn't be guaranteed.
-        </p>
         <div class="row center">
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
-          <div class="col-lg-6 col-sm-12 portfolio-item">
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
+            <img class="card-img" src="BrachiationSwing.gif" alt="">
+            <p><i>Brachiation integrates with the preexisting climbing system.</i></p>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <h3>Development</h3>
+            <div style ="text-align:left;">
+              <p>
+                I worked heavily with Design, Production, and Animation to ensure the system operated in a way that balanced player
+                freedom with impressive animations, while at the same time ensuring animation time wasn't wasted on unnecessary elements.<br>
+                In my technical design I pushed for modularity over the initially planned singular object. This made the feature more
+                interesting for players while also reducing animations workload by allowing a shorter animation to be retargeted to the
+                various modular pieces.<br>
+                As part of development I led weekly interdepartmental meetings on the feature, ensuring everything was coordinated and
+                highlight potential issues. This level of planning meant we were able to get double the animations we'd initially budgeted for.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row center">
+          <div class="col-lg-6 col-sm-12">
+            <h3>What I'd Do Next Time</h3>
+            <div style ="text-align:left;">
+              <p>
+                I'd have loved to experiment with some form of hand IK, allowing siamangs to grip the pole
+                reliably, and allowing animations to be made a lot faster. This would allow for more varieties of beam to be
+                created, as animation time was the limiting factor for this feature.<br>For a more practical change, it would have been
+                useful to discuss the beam dimensions at an earlier stage to ensure they all synergize (e.g. having two quarter turn pieces cover
+                the same distance as one half turn piece).
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12" style="display: flex; flex-direction: column; justify-content: center">
             <img class="card-img-top" src="BrachiationTransition.gif" alt="">
+            <p><i>Animations can traverse multiple objects unimpeded.</i></p>
           </div>
-          <div class="col-lg-3 col-sm-12 portfolio-item"></div>
         </div>
-        <hr />
-        <h3>What I'd do next time</h3>
-        <p>
-            Given unlimited time, I would have loved to experiment with some form of hand IK, allowing siamangs to grip the pole
-            reliably, and allowing animations to be made a lot faster. This would allow for more varieties of beam to be
-            created, as animation time was the limiting factor for this feature.<br>For a more practical change, it would have been
-            useful to discuss the beam dimensions at an earlier stage to ensure they all synergize (e.g. having two quarter turn pieces cover 
-            the same distance as one half turn piece).
-        </p>
     </div>
     <!-- /.container -->
     <hr />
