@@ -553,8 +553,22 @@ pre code {
   margin-left: auto;
 }
 
+.container-fat {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media (min-width: 576px) {
   .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container-fat {
+    padding-right: 15px;
+    padding-left: 15px;
     max-width: 540px;
   }
 }
@@ -565,15 +579,39 @@ pre code {
   }
 }
 
+@media (min-width: 768px) {
+  .container-fat {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 720px;
+  }
+}
+
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
   }
 }
 
+@media (min-width: 992px) {
+  .container-fat {
+    padding-right: 2px;
+    padding-left: 2px;
+    max-width: 984px;
+  }
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-fat {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: 1170px;
   }
 }
 
