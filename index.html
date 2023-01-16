@@ -37,6 +37,9 @@
                             <a class="dropdown-item" href="planetZoo.html">Planet Zoo - Overview</a>
                             <a class="dropdown-item" href="burrows.html">Planet Zoo - Burrows</a>
                             <a class="dropdown-item" href="brachiation.html">Planet Zoo - Brachiation</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="clouds.html">Volumetric Clouds</a>
+                            <a class="dropdown-item" href="goose.html">Realtime Multiplayer</a>
                             <a class="dropdown-item" href="paris.html">Paris Graphics Scene</a>
                             <a class="dropdown-item" href="gan.html">GAN Game Content</a>
                         </div>
@@ -101,12 +104,13 @@
     </header>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="max-width: none;">
         <!-- /.row -->
-
+        <div class="container">
         <hr>
         <!-- Portfolio Section -->
         <h3 class="center">Professional Projects</h3>
+        <br>
 
         <div class="row center">
             <div class="col-lg-4 col-sm-12 portfolio-item">
@@ -122,17 +126,6 @@
             </div>
             <div class="col-lg-4 col-sm-12 portfolio-item">
                 <div class="card h-100">
-                    <a href="burrows.html"><img class="card-img-top" src="Burrow.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="burrows.html">Planet Zoo - Burrows</a>
-                        </h4>
-                        <p class="card-text">A feature allowing animals to rest, seek shelter, and give birth underground. This feature required large AI changes to get a large new set of behaviours, all while requiring no new animations.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-12 portfolio-item">
-                <div class="card h-100">
                     <a href="brachiation.html"><img class="card-img-top" src="Siamang.png" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
@@ -142,13 +135,46 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-sm-12 portfolio-item">
+                <div class="card h-100">
+                    <a href="burrows.html"><img class="card-img-top" src="Burrow.png" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="burrows.html">Planet Zoo - Burrows</a>
+                        </h4>
+                        <p class="card-text">A feature allowing animals to rest, seek shelter, and give birth underground. This feature required large AI changes to get a large new set of behaviours, all while requiring no new animations.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <h3 class="center">Personal Projects</h3>
-
+        <br>
+      </div>
         <div class="row center">
-            <div class="col-lg-2 col-sm-0"></div>
-            <div class="col-lg-4 col-sm-12 portfolio-item">
+            <div class="col-lg-3 col-sm-12 portfolio-item" style="padding-left: 5px; padding-right: 5px;">
+                <div class="card h-100">
+                    <a href="clouds.html"><img class="card-img-top" src="clouds.png" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="clouds.html">Volumetric Cloud Experiments</a>
+                        </h4>
+                        <p class="card-text">A program demonstrating multiple diffent graphical techniques to render a Paris based landscape in OpenGL. Elements of the scene are built up over time, as the camera gives a guided tour.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 portfolio-item" style="padding-left: 5px; padding-right: 5px;">
+                <div class="card h-100">
+                    <a href="goose.html"><img class="card-img-top" src="goose.png" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="goose.html">Realtime Multiplayer Implementation</a>
+                        </h4>
+                        <p class="card-text">A project based on finding whether game content generation could be performed by machine learning methods, rather than typical procedural generation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 portfolio-item" style="padding-left: 5px; padding-right: 5px;">
                 <div class="card h-100">
                     <a href="paris.html"><img class="card-img-top" src="Eiffel.png" alt=""></a>
                     <div class="card-body">
@@ -159,7 +185,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-12 portfolio-item">
+            <div class="col-lg-3 col-sm-12 portfolio-item" style="padding-left: 5px; padding-right: 5px;">
                 <div class="card h-100">
                     <a href="gan.html"><img class="card-img-top" src="GAN.png" alt=""></a>
                     <div class="card-body">
@@ -170,18 +196,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-0"></div>
-            <!--<div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="purple.html"><img class="card-img-top" src="Stocks.png" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="purple.html">Stock Analysis Web App</a>
-                        </h4>
-                        <p class="card-text">A web app used to find anomalies in stock data, and automatically categorise them. Live stock data could also be read, and predictions on future prices could be made as well.</p>
-                    </div>
-                </div>
-            </div>-->
         </div>
         <!-- /.row -->
         <!-- Features Section -->
