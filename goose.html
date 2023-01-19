@@ -35,8 +35,8 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                             <a class="dropdown-item" href="planetZoo.html">Planet Zoo - Overview</a>
-                            <a class="dropdown-item" href="burrows.html">Planet Zoo - Burrows</a>
                             <a class="dropdown-item" href="brachiation.html">Planet Zoo - Brachiation</a>
+                            <a class="dropdown-item" href="burrows.html">Planet Zoo - Burrows</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="clouds.html">Volumetric Clouds</a>
                             <a class="dropdown-item" href="goose.html">Realtime Multiplayer</a>
@@ -64,9 +64,11 @@
             <h1 class="mt-3 mb-4">
                 Realtime Multiplayer Implementation
             </h1>
+            <h6>Dec 2019</h6>
             <p style="font-size: 1em;">
-                Can you use machine learning to balance a strategy game? I wanted to find out, and see if it was possible to create
-                a huge ammount of game content that was indistinguishable from a human designed training set.
+                I'd previously created a basic game engine in C++, and made <i>Unoriginal Goose Game</i>, a blatant rip-off
+                that helped me develop the engine further (e.g. adding physics/UI/AI systems). Here's the details of my online
+                system, alongside some of the other features of the program.
             </p>
           </div>
         </div>
@@ -77,26 +79,17 @@
 
         <!-- Page Heading/Breadcrumbs -->
         <hr />
-        <h2 class="mt-4 mb-3">
-            Key Skills
-        </h2>
-
-        <ul>
-            <li>Python</li>
-            <li>TensorFlow</li>
-            <li>Unity</li>
-        </ul>
-        <hr />
         <p>
-            This was an individual project. After reading a paper on how a <a href="https://arxiv.org/abs/1804.09154">Generative Adversarial Network was used to generate DOOM levels</a>, I wanted to see
-            if a similar type of machine learning based generation could be applied to other forms of game content. I designed and created a strategy game, featuring attacks that could not easilly be created by
-            conventional procedural generation without being imbalanced. Creating two neural networks in TensorFlow, a 'generator' and a 'discriminator', I was able to train the network to a point where very few
-            imbalanced attacks were generated.
+            The goal of the game was simple, collect the most apples and return them to your base. One player would start a server and would wait for another player
+            to enter as a client (The game by default simply looked for a server on the local network, but this was modifiable). In terms of what was sent between
+            players, the majority of game logic was handled client side, and the only regularly sent data from the client was the position of their player, alongside
+            any other inputs. To ensure the consistency of the world, transforms and data of objects would ocassionally be synced from the server, with the client
+            attempting to only update each object is it wasn't being interacted with, and ideally if it was out of sight.
         </p>
         <p>
-            I also created a strategy game in Unity, to show that the generated content could be used in a game without breaking the established game balance.
-            The game read in a csv file containing the results of the generation, and playtesting revealed that players thought the generated playthroughs were just as good as playthroughs using the training set of attacks.
-            Gameplay footage can be seen in the video below.
+            Here you can see a demonstration of a game starting, the consistent world, alongside other features of the engine. A* pathfinding was implemented alongside
+            a state based AI system for the enemy humans, and objects like the football demonstate Sphere-Sphere and Sphere-AABB collisions (OBB collisions and physics
+            constraints were also present in other parts of the game).
         </p>
         <hr />
         <div class="text-center iframe-container">
@@ -105,8 +98,9 @@
         <hr />
         <h4>What I'd do next time</h4>
         <p>
-            I would have liked to include the generation process within the game itself, so that truly infinite ammounts of content could have been created.
-            In terms of further extensions, I think it would be cool to have the network see which attacks get chosen more often, and adapt to generate more similar types of attack.
+            There's a lot of small reliability improvements to be made here, but here's one example. As can be seen in the video when the football is kicked, the rotation of each
+            object wasn't reliably consistent between clients. This was mainly as issue as there was no rotation at all, so sending updates after specific events would
+            have been a good improvement. Colliding with the footbal triggered an impulse force on the ball, and at the same time a message could have been sent out ensuring the ball would spin.
         </p>
 
 
